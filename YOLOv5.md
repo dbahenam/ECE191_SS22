@@ -1,6 +1,6 @@
 # YOLOv5 and OAK D LITE
 
-1. Fly drone over desired detected objects
+1. Fly drone over area where objects are located
 2. Take video using OAK D Lite camera
    - capVideo.py
    - The video taken will be save into a Video folder
@@ -8,11 +8,10 @@
    - run getImgs.py, modify path of desired video to get images from
    - The images will be saved into an Images folder
 4. Make an account in Roboflow.com to begin labeling images and training
-5.
-6. Once images are labeled and model is trained, follow tutorial below to export necessary blob file to run with oak d lite
-   https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/YoloV5_training.ipynb
-   - Helpful Links:
-     https://www.youtube.com/watch?v=MdF6x6ZmLAY
-     https://colab.research.google.com/drive/1gDZ2xcTOgR39tGGs-EZ6i3RTs16wmzZQ
-     https://blog.roboflow.com/how-to-train-yolov5-on-a-custom-dataset/
-7.
+5. Once images are labeled and model is trained, follow tutorial below to export necessary blob file to run with oak d lite
+   - Depthai Yolov5 Tutorial
+     - https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/YoloV5_training.ipynb
+6. Helpful Links:
+   - Roboflow yolov5 video tutorial: https://www.youtube.com/watch?v=MdF6x6ZmLAY
+   - Robofloww yolov5 google colab: https://colab.research.google.com/drive/1gDZ2xcTOgR39tGGs-EZ6i3RTs16wmzZQ
+   - Roboflow yolov5 blog: https://blog.roboflow.com/how-to-train-yolov5-on-a-custom-dataset/

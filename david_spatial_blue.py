@@ -26,7 +26,7 @@ if 1 < len(sys.argv):
     else:
         nnBlobPath = arg
 else:
-    print("Using YOLOv5 Tin Can Detection")
+    print("Using YOLOv5 Buoy Detection")
 
 if not Path(nnBlobPath).exists():
     import sys
@@ -206,14 +206,10 @@ with dai.Device(pipeline) as device:
             cv2.rectangle(frame, (x1, y1), (x2, y2), color, cv2.FONT_HERSHEY_SIMPLEX)
 
             # Find x,y of the center of bounding box:
-            bounds = [x1, y1, x2, y2]
-            polygon = box(*bounds)
-            center_x = polygon.centroid.x
-            center_y = polygon.centroid.y
-            # print("center x: ", polygon.centroid.x)
-            # print("center y: ",polygon.centroid.y)
+            center_x = (x1 + x2) / 2
+            center_y = (y1 + y2) / 2
 
-            # 
+            
             height = x2 - x1
             width = y2 - y1
             xPPM = ((distance*math.tan(math.radians(RGB_FOV/2))) / (width/2))
@@ -222,22 +218,6 @@ with dai.Device(pipeline) as device:
             yPose = ((height/2) - center_y) * yPPM
             print("x_pose: ", xPose)
             print("y_pose: ", yPose)
-
-        """
-        def getPixelPerMeter(self, aFOV, aResolution ,anAltitude):
-        (cX, cY) = (int(tag.center[0]), int(tag.center[1]))
-                height   = self.Image.shape[0]
-                width    = self.Image.shape[1]
-                xPPM     = self.getPixelPerMeter(self.xFOV, width, anAltitude)
-                #yPPM     = self.getPixelPerMeter(self.yFOV, height, anAltitude)
-                yPPM = xPPM
-
-                xPose    = ((width/2)  - cX)*xPPM 
-                yPose    = ((height/2) - cY)*yPPM
-                print("x: ", xPose)
-                print("y: ", yPose)
-                return (xPose, yPose)
-        """
 
         cv2.putText(frame, "NN fps: {:.2f}".format(fps), (2, frame.shape[0] - 4), cv2.FONT_HERSHEY_TRIPLEX, 0.4, color)
         #cv2.imshow("depth", depthFrameColor)
