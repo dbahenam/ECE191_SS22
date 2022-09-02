@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 
 from pathlib import Path
 import sys
@@ -7,7 +6,6 @@ import depthai as dai
 import numpy as np
 import time
 import math
-from shapely.geometry import box
 
 '''
 Spatial Tiny-yolo example
